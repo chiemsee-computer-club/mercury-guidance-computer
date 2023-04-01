@@ -5,7 +5,6 @@ import 'package:mercury_guidance_computer/config/routes/export.dart';
 import 'package:mercury_guidance_computer/config/routes/routes_config.dart';
 import 'package:flutter/cupertino.dart';
 
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -19,11 +18,11 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             CupertinoButton.filled(
-                onPressed: () => {
-                      RoutesConfig.ROUTER
-                          .navigateTo(context, Routes.settingsScreen)
-                    },
-                child: const Text("Settings"))
+              onPressed: () => {
+                RoutesConfig.ROUTER.navigateTo(context, Routes.settingsScreen)
+              },
+              child: const Text("Settings"),
+            ),
           ],
         ),
       ),

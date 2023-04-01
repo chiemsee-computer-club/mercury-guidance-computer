@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:mercury_guidance_computer/config/routes/routes_handler.dart';
 
 class Routes {
-  static const NEW_RATING = '/';
+  static const homeScreen = '/';
+  static const settingsScreen  = '/settings';
 
   static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = Handler(
@@ -11,6 +12,8 @@ class Routes {
       print("ROUTE WAS NOT FOUND !!!");
       return;
     });
-    router.define(NEW_RATING, handler: homeHandler, transitionType: TransitionType.cupertino);
+
+    router.define(homeScreen, handler: homeHandler, transitionType: TransitionType.cupertino);
+    router.define(settingsScreen, handler: settingsHandler, transitionType: TransitionType.cupertino);
   }
 }

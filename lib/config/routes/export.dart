@@ -1,2 +1,2 @@
 export 'routes.dart';
-export 'routes_config.dart';
+export 'routing_service.dart';

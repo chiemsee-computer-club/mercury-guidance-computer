@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mercury_guidance_computer/config/theme/export.dart';
 import 'package:mercury_guidance_computer/startup.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury_guidance_computer/widgets/mercury_bottom_navigation_bar.dart';
 
 import 'config/routes/export.dart';
 
@@ -12,10 +13,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key});  
+
 
   @override
   Widget build(BuildContext context) {
+    var routingService = getIt.get<RoutingService>();
+
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeBloc>(
@@ -31,7 +35,27 @@ class MyApp extends StatelessWidget {
               title: 'Mercury Guidance Computer',
               debugShowCheckedModeBanner: false,
               theme: themeState.themeData,
-              onGenerateRoute: RoutesConfig.ROUTER.generator);
+              builder: (context, child) {
+                return Scaffold(
+                  body: Column(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          children: [
+                            const SizedBox(
+                              width: 200,
+                            ),
+                            Expanded(child: child!),
+                          ],
+                        ),
+                      ),
+                      const MercuryBottomNaviagationBar()
+                    ],
+                  ),
+                );
+              },
+              onGenerateRoute: routingService.router.generator,
+              navigatorKey: routingService.navigatorKey);
         },
       ),
     );

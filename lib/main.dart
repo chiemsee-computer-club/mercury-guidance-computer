@@ -1,3 +1,4 @@
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mercury_guidance_computer/config/theme/export.dart';
 import 'package:mercury_guidance_computer/startup.dart';
@@ -6,9 +7,12 @@ import 'package:mercury_guidance_computer/widgets/mercury_bottom_navigation_bar.
 import 'package:mercury_guidance_computer/widgets/mercury_side_bar.dart';
 
 import 'config/routes/export.dart';
+import 'dart:async';
 
 void main() {
   configureServices();
+  Future.wait(
+      [FastCachedImageConfig.init(clearCacheAfter: const Duration(days: 15))]);
 
   runApp(const MyApp());
 }
@@ -46,7 +50,9 @@ class MyApp extends StatelessWidget {
                             const VerticalDivider(
                               thickness: 2,
                             ),
-                            Expanded(child: child!),
+                            Expanded(
+                              child: child!,
+                            ),
                           ],
                         ),
                       ),

@@ -11,7 +11,7 @@ part 'spotify_my_playlists_state.dart';
 class SpotifyMyPlaylistsBloc
     extends Bloc<SpotifyMyPlaylistsEvent, SpotifyMyPlaylistsState> {
   SpotifyMyPlaylistsBloc() : super(SpotifyMyPlaylistsInitial()) {
-    on<SpotifyMyPlaylistsEvent>((event, emit) async {
+    on<SpotifyMyPlaylistsLoadEvent>((event, emit) async {
       emit(SpotifyMyPlaylistsLoadingState());
 
       try {

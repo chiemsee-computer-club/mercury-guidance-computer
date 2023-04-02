@@ -43,6 +43,8 @@ dependencies:
   flutter_svg: ^2.0.4
   glassmorphism_ui: ^0.3.0
   spotify: ^0.10.0
+  asset_cache: ^2.0.0
+  fast_cached_network_image: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +73,7 @@ flutter:
     - assets/icons/
     - assets/glass/
     - assets/apps/spotify/
+    - cache/images/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

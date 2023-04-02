@@ -20,13 +20,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void initState() {
     super.initState();
     var localStorageService = getIt.get<LocalStorageService>();
-    _selectedTheme = localStorageService.theme == AppTheme.Dark ? AppTheme.Light : AppTheme.Dark;
+    _selectedTheme = localStorageService.theme == AppTheme.Dark
+        ? AppTheme.Light
+        : AppTheme.Dark;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Settings")),
+      appBar: AppBar(
+        title: const Text(
+          "Settings",
+        ),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black,
+      ),
       body: Column(
         children: [
           const Text("Change Theme"),
@@ -63,9 +72,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   var theme = newTheme == AppTheme.Dark
                       ? AppTheme.Light
                       : AppTheme.Dark;
-                  context
-                      .read<ThemeBloc>()
-                      .add(ThemeEventUpdate(theme: theme));
+                  context.read<ThemeBloc>().add(ThemeEventUpdate(theme: theme));
                 },
               );
             },

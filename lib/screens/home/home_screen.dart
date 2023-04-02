@@ -12,7 +12,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Mercury Guidance Computer"),
+        title: const Text(
+          "Mercury Guidance Computer",
+        ),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black,
       ),
       body: Container(
         child: Column(

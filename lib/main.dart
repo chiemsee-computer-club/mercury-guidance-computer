@@ -3,6 +3,7 @@ import 'package:mercury_guidance_computer/config/theme/export.dart';
 import 'package:mercury_guidance_computer/startup.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury_guidance_computer/widgets/mercury_bottom_navigation_bar.dart';
+import 'package:mercury_guidance_computer/widgets/mercury_side_bar.dart';
 
 import 'config/routes/export.dart';
 
@@ -37,19 +38,18 @@ class MyApp extends StatelessWidget {
               theme: themeState.themeData,
               builder: (context, child) {
                 return Scaffold(
-                  body: Column(
+                  body: Row(
                     children: [
+                      const MercurySideBar(),
+                      const VerticalDivider(thickness: 2,),
                       Expanded(
-                        child: Row(
+                        child: Column(
                           children: [
-                            const SizedBox(
-                              width: 200,
-                            ),
                             Expanded(child: child!),
+                            const MercuryBottomNaviagationBar()
                           ],
                         ),
-                      ),
-                      const MercuryBottomNaviagationBar()
+                      )
                     ],
                   ),
                 );

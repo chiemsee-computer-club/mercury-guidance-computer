@@ -8,7 +8,14 @@ class SpotifyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Spotify")),
+      appBar: AppBar(
+        title: const Text(
+          "Spotify",
+        ),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black,
+      ),
     );
   }
 }

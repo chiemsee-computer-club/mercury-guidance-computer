@@ -20,10 +20,13 @@ class RoutingService {
   void navigateTo(String path)
   {
     var context = _getRoutingContext();
+    var navigatorState = navigatorKey.currentState;
+    if (navigatorState != null && navigatorState.canPop()) {
+      navigatorState.popUntil((route) => route.isFirst);
+    }
     if (context != null) {
       router.navigateTo(context, path);
     }
-
   }
 
   BuildContext? _getRoutingContext()

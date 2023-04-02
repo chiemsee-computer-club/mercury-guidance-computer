@@ -14,8 +14,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});  
-
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +37,20 @@ class MyApp extends StatelessWidget {
               theme: themeState.themeData,
               builder: (context, child) {
                 return Scaffold(
-                  body: Row(
+                  body: Column(
                     children: [
-                      const MercurySideBar(),
-                      const VerticalDivider(thickness: 2,),
                       Expanded(
-                        child: Column(
+                        child: Row(
                           children: [
+                            const MercurySideBar(),
+                            const VerticalDivider(
+                              thickness: 2,
+                            ),
                             Expanded(child: child!),
-                            const MercuryBottomNaviagationBar()
                           ],
                         ),
-                      )
+                      ),
+                      const MercuryBottomNaviagationBar()
                     ],
                   ),
                 );

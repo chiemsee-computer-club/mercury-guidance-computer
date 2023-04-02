@@ -4,12 +4,16 @@ import 'package:asset_cache/asset_cache.dart';
 import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mercury_guidance_computer/logic/bloc/spotify_my_playlists_bloc.dart';
+import 'package:mercury_guidance_computer/startup.dart';
 import 'package:mercury_guidance_computer/utils/extensions/context_extensions.dart';
+
+import '../../config/routes/routing_service.dart';
 
 class SpotifyScreen extends StatelessWidget {
   const SpotifyScreen({super.key});
@@ -97,7 +101,14 @@ class SpotifyScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       padding: const EdgeInsets.only(top: 20),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          final playlistId = playlist.id;
+                          if (playlistId != null) {
+                            final routingService = getIt.get<RoutingService>();
+                            routingService.navigateTo("/spotify/playlist",
+                                arguments: playlist);
+                          }
+                        },
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

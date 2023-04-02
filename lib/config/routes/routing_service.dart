@@ -17,7 +17,7 @@ class RoutingService {
     return _router!;
   }
 
-  void navigateTo(String path)
+  void navigateTo(String path, {Object? arguments})
   {
     var context = _getRoutingContext();
     var navigatorState = navigatorKey.currentState;
@@ -25,7 +25,7 @@ class RoutingService {
       navigatorState.popUntil((route) => route.isFirst);
     }
     if (context != null) {
-      router.navigateTo(context, path);
+      Navigator.of(context).pushNamed(path, arguments: arguments);
     }
   }
 
